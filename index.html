@@ -8,8 +8,8 @@
   </head>
   <body>
     <main class="app">
-      <h1>Snake</h1>
-      <div class="hud">
+      <h1 class="title panel">Snake</h1>
+      <div class="hud panel">
         <div class="score">Score: <span id="score">0</span></div>
         <div class="player">Player: <span id="player-display">-</span></div>
         <div id="status" class="status"></div>
@@ -17,11 +17,11 @@
       <div class="board">
         <canvas id="game" aria-label="Snake game board" role="img"></canvas>
       </div>
-      <div class="controls">
+      <div class="controls panel">
         <button id="pause-btn" type="button">Pause</button>
         <button id="restart-btn" type="button">Restart</button>
       </div>
-      <section class="leaderboard" aria-label="Leaderboard">
+      <section class="leaderboard panel" aria-label="Leaderboard">
         <h2>Leaderboard</h2>
         <table>
           <thead>
@@ -34,7 +34,7 @@
           <tbody id="leaderboard-body"></tbody>
         </table>
       </section>
-      <p class="help">
+      <p id="help" class="help panel">
         Move: Arrow keys or WASD. Pause: Space or P. Restart: R.
       </p>
     </main>

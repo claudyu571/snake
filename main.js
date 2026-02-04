@@ -1,7 +1,5 @@
 const GRID_SIZE = 20;
 const TICK_MS = 120;
-const MIN_CELL = 12;
-const MAX_CELL = 32;
 const LEADERBOARD_KEY = "snake.leaderboard.v1";
 
 const canvas = document.getElementById("game");
@@ -12,6 +10,7 @@ const playerDisplay = document.getElementById("player-display");
 const pauseBtn = document.getElementById("pause-btn");
 const restartBtn = document.getElementById("restart-btn");
 const leaderboardBody = document.getElementById("leaderboard-body");
+const helpEl = document.getElementById("help");
 
 const nameModal = document.getElementById("name-modal");
 const nameInput = document.getElementById("player-name");
@@ -40,18 +39,10 @@ const KEY_DIR = {
   D: "right",
 };
 
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
-
 function resizeBoard() {
-  const maxBoardPx = Math.min(
-    window.innerWidth * 0.9,
-    window.innerHeight * 0.6,
-    640
-  );
+  const maxBoardPx = Math.min(window.innerWidth, window.innerHeight);
   const rawCell = Math.floor(maxBoardPx / GRID_SIZE);
-  cellSize = clamp(rawCell, MIN_CELL, MAX_CELL);
+  cellSize = Math.max(1, rawCell);
   boardPx = cellSize * GRID_SIZE;
 
   canvas.width = boardPx;
@@ -144,6 +135,7 @@ function startGame() {
   playerDisplay.textContent = playerName;
   nameError.textContent = "";
   nameModal.classList.add("hidden");
+  helpEl.classList.add("hidden");
   gameStarted = true;
   setControlsEnabled(true);
   resetGame();
