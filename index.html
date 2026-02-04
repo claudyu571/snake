@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <h1>Snake</h1>
+      <div class="hud">
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="player">Player: <span id="player-display">-</span></div>
+        <div id="status" class="status"></div>
+      </div>
+      <div class="board">
+        <canvas id="game" aria-label="Snake game board" role="img"></canvas>
+      </div>
+      <div class="controls">
+        <button id="pause-btn" type="button">Pause</button>
+        <button id="restart-btn" type="button">Restart</button>
+      </div>
+      <section class="leaderboard" aria-label="Leaderboard">
+        <h2>Leaderboard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-body"></tbody>
+        </table>
+      </section>
+      <p class="help">
+        Move: Arrow keys or WASD. Pause: Space or P. Restart: R.
+      </p>
+    </main>
+    <div id="name-modal" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal">
+        <h2>Enter your name</h2>
+        <p>This name will be used on the leaderboard.</p>
+        <div class="modal-field">
+          <input
+            id="player-name"
+            type="text"
+            maxlength="20"
+            placeholder="Your name"
+            autocomplete="nickname"
+          />
+          <div id="name-error" class="error"></div>
+        </div>
+        <button id="start-btn" type="button">Start</button>
+      </div>
+    </div>
+    <script src="logic.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
